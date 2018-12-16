@@ -12,27 +12,133 @@ namespace Basic.Lesson_4._1
         //B4-P1/25. If_TimeOfDayGreeting
         public static void B4_P1_25_If_TimeOfDayGreeting()
         {
+            var current = DateTime.Now.Hour;
+            if (current < 7)
+            {
+                Console.WriteLine("Мы спим");
+            }
+            else if (current < 12)
+                {
+                Console.WriteLine("Доброе утро!");
+                }
+                    else if (current < 18)
+                        {
+                            Console.WriteLine("Добрый день!");
+                        }
+                        else if (current < 24)
+                             {
+                                Console.WriteLine("Добрый вечер!");
+                             }
         }
-
         //B4-P2/25. If_NumbersComparing
         public static void B4_P2_25_If_NumbersComparing()
         {
+            Console.WriteLine("Введите значение Х");
+            int valueX = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите значение Y");
+            int valueY = Convert.ToInt32(Console.ReadLine());
+            if (valueX == valueY)
+                Console.WriteLine("Значения равны");
+            else if (valueX < valueY)
+                    Console.WriteLine($"X меньше Y на {valueY-valueX}");
+                else
+                    Console.WriteLine($"Y меньше X на {valueX - valueY}");
         }
 
         //B4-P3/25. If_PositiveNumbersComparing
         public static void B4_P3_25_If_PositiveNumbersComparing()
         {
+            Console.WriteLine("Введите значение Х");
+            int valueX = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите значение Y");
+            int valueY = Convert.ToInt32(Console.ReadLine());
+            if ((valueX >= 0) && (valueY >= 0))
+            {
+                if (valueX == valueY)
+                    Console.WriteLine("Значения равны");
+                else if (valueX < valueY)
+                    Console.WriteLine($"X меньше Y на {valueY - valueX}");
+                else
+                    Console.WriteLine($"Y меньше X на {valueX - valueY}");
+            }
+            else Console.WriteLine("не работаю с отрицательными числами");
+
         }
 
         //B4-P4/25. If_Akinator5Numbers
         public static void B4_P4_25_If_Akinator5Numbers()
         {
-            
+            Console.WriteLine("Загадывайте целое число от 1 до 10        легенда -   '+' да, '-' нет ");
+            int min = 1;
+            int max = 10;
+            int middle = 5;
+            while (true)
+            {
+                if (min == max)
+                {
+                    Console.WriteLine($"Вроде бы ответ {min}");
+                    Console.ReadKey();
+                    break;
+                }
+                else
+                {
+                    
+
+                }
+                Console.WriteLine($"Загаданное число больше {middle} ?");
+                char answer = Convert.ToChar(Console.ReadLine());                
+                if (!answer.Equals('+') && !answer.Equals('-'))
+                {
+                    Console.WriteLine("Непонятный ответ...");
+                    continue;
+                }
+                if (answer.Equals('+'))
+                {
+                    min = middle;
+                    if ((min + max) / 2 != middle)
+                    {
+                        middle = ((min + max) / 2);
+                    }
+                    else min++;
+                }
+                else
+                {                   
+                    max = middle;
+                    middle = ((min + max) / 2);
+                }
+            }
+
         }
 
         //B4-P5/25. Switch_DayOfWeek
         public static void B4_P5_25_Switch_DayOfWeek()
         {
+            var today = DateTime.Now;
+            var dayOfWeek = (Int32)today.DayOfWeek;
+            switch (dayOfWeek){
+                case 0:
+                    Console.WriteLine("Доброго воскресенья");
+                    break;
+                case 1:
+                    Console.WriteLine("Доброго понедельника");
+                    break;
+                case 2:
+                    Console.WriteLine("Доброго вторника");
+                    break;
+                case 3:
+                    Console.WriteLine("Доброй среды");
+                    break;
+                case 4:
+                    Console.WriteLine("Доброго четверга");
+                    break;
+                case 5:
+                    Console.WriteLine("Доброй пятницы ");
+                    break;
+                case 6:
+                    Console.WriteLine("Доброй субботы");
+                    break;
+                
+            }
         }
 
         //B4-P6/25. Switch_GameNavigation
