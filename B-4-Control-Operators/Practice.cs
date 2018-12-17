@@ -384,31 +384,116 @@ namespace Basic.Lesson_4._1
             }
         }
 
-
         //B4-P22_25 *While_Akinator100Numbers
         public static void B4_P22_25_While_Akinator100Numbers()
         {
-            
+            Console.WriteLine("Загадывайте целое число от 1 до 100        легенда -   '+' да, '-' нет ");
+            int min = 1;
+            int max = 100;
+            int middle = 50;
+            while (true)
+            {
+                if (min == max)
+                {
+                    Console.WriteLine($"Вроде бы ответ {min}");
+                    Console.ReadKey();
+                    break;
+                }                
+                Console.WriteLine($"Загаданное число больше {middle} ?");
+                char answer = Convert.ToChar(Console.ReadLine());
+                switch (answer)
+                {
+                    case '+':
+                        min = middle;
+                        if ((min + max) / 2 != middle)
+                        {
+                            middle = ((min + max) / 2);
+                        }
+                        else
+                        {
+                            min++;
+                            middle = ((min + max) / 2);
+                        }
+                        break;
+                    case '-':
+                        max = middle;
+                        middle = ((min + max) / 2);
+                        break;
+                    default:
+                        Console.WriteLine("Непонятный ответ...");
+                        continue;
+                }               
+            }
         }
-
 
         //B4-P23/25 IfElse_Calcultor
         public static void B4_P23_25_IfElse_Calcultor()
         {
-            
+            Console.WriteLine("Введите первое число");
+            int addend1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите оператор ");
+            char oper = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine("Введите второе число");
+            int addend2 = Convert.ToInt32(Console.ReadLine());            
+            int result;
+            if (oper.Equals('+'))
+                result = addend1 + addend2;
+            else if (oper.Equals('-'))
+                result = addend1 - addend2;
+            else if (oper.Equals('*'))
+                result = addend1 * addend2;
+            else if (oper.Equals('/'))
+                result = addend1 / addend2;
+            else
+            {
+                Console.WriteLine("Неподдерживаемый оператор ");
+                return;
+            }
+            Console.WriteLine($"Ответ:  {result}");
         }
-
 
         //B4-P24_25 Switch_Calculator
         public static void B4_P24_25_Switch_Calculator()
         {
-            
+            Console.WriteLine("Введите первое число");
+            int addend1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите оператор ");
+            char oper = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine("Введите второе число");
+            int addend2 = Convert.ToInt32(Console.ReadLine());
+            int result = 0;
+            switch (oper)
+            {
+                case '+':
+                    result = addend1 + addend2;
+                    break;
+                case '-':
+                    result = addend1 - addend2;
+                    break;
+                case '*':
+                    result = addend1 * addend2;
+                    break;
+                case '/':
+                    result = addend1 / addend2;
+                    break;
+                default:
+                    Console.WriteLine("Неподдерживаемый оператор ");
+                    return;
+            }            
+            Console.WriteLine($"Ответ:  {result}");
         }
-
 
         //B4-P25/25 Cycle_WordRevercse
         public static void B4_P25_25_Cycle_WordRevercse()
         {
+            Console.WriteLine("Введите слово");
+            string word = Console.ReadLine();
+            string wordBack ="";
+            for (int i = word.Length; i > 0; i--)
+            {
+                wordBack += word[i-1];
+            }
+            Console.WriteLine($"результат {wordBack} ");
         }
     }
 }
